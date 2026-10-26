@@ -1,0 +1,32 @@
+@import "tailwindcss";
+
+/* 따뜻한 크림 → 살구 톤 하나로 고정합니다. (다크 모드 없이 늘 같은 분위기) */
+:root {
+  color-scheme: light;
+  --background: #fdf6ec;
+  --foreground: #3b2f2a;
+  --muted: #8a7568;
+  --accent: #e8926b;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-muted: var(--muted);
+  --color-accent: var(--accent);
+  --font-sans: var(--font-pretendard), "Pretendard", -apple-system,
+    "Apple SD Gothic Neo", "Malgun Gothic", system-ui, sans-serif;
+}
+
+body {
+  color: var(--foreground);
+  font-family: var(--font-sans);
+  letter-spacing: -0.01em;
+  background-color: var(--background);
+  /* 부드러운 빛 번짐 두 개 + 위에서 아래로 크림 → 살구 */
+  background-image:
+    radial-gradient(60rem 40rem at 10% -10%, #fffaf3 0%, transparent 60%),
+    radial-gradient(50rem 40rem at 110% 110%, #f9c9ad 0%, transparent 55%),
+    linear-gradient(180deg, #fdf6ec 0%, #fbe6d4 55%, #f8d6c0 100%);
+  background-attachment: fixed;
+}
